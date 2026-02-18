@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="mb-3 text-center">Course Enrollment Stats ({{ session.company_name }})</h3>
+
+    <form method="POST" class="row g-3 mb-4 justify-content-center">
+        <div class="col-md-3">
+            <select class="form-select" name="course">
+                <option value="">All Courses</option>
+                {% for c in all_courses %}
+                    <option value="{{ c.name }}" {% if c.name == selected_course %}selected{% endif %}>{{ c.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="form-select" name="year">
+                <option value="">All Years</option>
+                {% for y in all_years %}
+                    <option value="{{ y.year }}" {% if y.year == selected_year %}selected{% endif %}>{{ y.year }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Filter</button>
+        </div>
+    </form>
+
+    <div class="card p-4 shadow-sm">
+        <canvas id="courseChart" 
+                data-labels='{{ labels | tojson | safe }}' 
+                data-data='{{ data | tojson | safe }}'></canvas>
+        <button class="btn btn-outline-success mt-3" onclick="downloadChart()">Download Chart</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const canvas = document.getElementById('courseChart');
+    const labels = JSON.parse(canvas.dataset.labels);
+    const data = JSON.parse(canvas.dataset.data);
+
+    const ctx = canvas.getContext('2d');
+    const courseChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Enrollments',
+                data: data,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    function downloadChart() {
+        const link = document.createElement('a');
+        link.download = 'course_stats.png';
+        link.href = courseChart.toBase64Image();
+        link.click();
+    }
+</script>
+{% endblock %}

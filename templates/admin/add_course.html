@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-container">
+    <div class="form-card">
+        <h2 class="text-center mb-4">Add New Course</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label>Course Name:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Duration:</label>
+                <input type="text" name="duration" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Company Offering Course:</label>
+                <input type="text" name="company_name" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Add Course</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

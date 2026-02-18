@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    min-height: 100vh;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    min-height: calc(100vh - 80px); /* navbar height */
+}
+
+/* Login/Register card style */
+.form-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.form-card h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.form-card input[type="text"],
+.form-card input[type="email"],
+.form-card input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #eef4ff;
+}
+
+.form-card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.form-card button:hover {
+    background-color: #5146d9;
+}
+
+.form-card p {
+    margin-top: 15px;
+}
+
+.form-card a {
+    color: #6c63ff;
+    font-weight: 600;
+}
+/* Page wrapper for student home */
+.course-page-wrapper {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Title */
+.page-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Course cards container */
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Individual course card */
+.course-card {
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+/* Button styling */
+.btn-enroll {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background-color: #0984e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enroll:hover {
+    background-color: #74b9ff;
+}
+/* Center the form */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+/* Card style */
+.form-card {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-card h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-card input {
+    margin-bottom: 15px;
+}
+
+.form-card button {
+    margin-top: 10px;
+}
+
+

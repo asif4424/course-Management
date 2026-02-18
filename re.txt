@@ -1,0 +1,5 @@
+to check the output:
+first open virtual environment:
+source venv/bin/activate
+then run the code:
+python app.py

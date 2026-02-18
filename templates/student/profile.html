@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm bg-light">
+                <h4 class="mb-3">Your Profile</h4>
+                <p><strong>Name:</strong> {{ student.name }}</p>
+                <p><strong>Email:</strong> {{ student.email }}</p>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mb-3">Your Enrollments</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in enrollments %}
+                <tr>
+                    <td>{{ e.course_name }}</td>
+                    <td>{{ e.duration }}</td>
+                    <td>{{ e.company_name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Manage Courses - {{ session.company_name }}</h3>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-success">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    {% if courses %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>Company</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.duration }}</td>
+                    <td>{{ course.company_name }}</td>
+                    <td>
+                        <form method="POST" onsubmit="return confirm('Are you sure you want to delete this course?');">
+                            <input type="hidden" name="course_id" value="{{ course.id }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+        <p class="text-muted text-center">No courses found.</p>
+    {% endif %}
+</div>
+{% endblock %}
